@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enter your calories</title>
+        <link rel="stylesheet" href="/writer.css">
+    </head>
+    <body>
+        <input type="button" id="log out" value="log out" onclick="onclickOfLogout()">
+        <h1>Enter what you ate last</h1>
+        <p>If you lie, you lie only yourself</p>
+        <form id="form id" onsubmit="return false">
+            <label for="user email">Enter email:</label><br>
+            <input type="email" id="user email" required><br>
+            <label for="product calories">Enter calories(in kcal):</label>
+            <input type="text" id="product calories" required>
+            <label for="product calories">Enter fats(in g):</label>
+            <input type="text" id="product fats">
+            <label for="product calories">Enter sugars(in g):</label>
+            <input type="text" id="product sugars" required>
+            <input type="submit" id="button" value="write the product" onclick="callAPI(document.getElementById('user email').value, document.getElementById('product calories').value, document.getElementById('product fats').value, document.getElementById('product sugars').value)">
+        </form>
+    </body>
+    
+    <script src="/writer.js"></script>
+
+</body>
+</html>

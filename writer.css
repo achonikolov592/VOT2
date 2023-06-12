@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(0, 0, 0);
+  }
+  h1 {
+    text-align: center;
+    margin-top: 200px;
+
+    color: white;
+  }
+
+  p
+  {
+    text-align: center;
+    color: white;
+    font-size: large;
+  }
+  label
+  {
+    color: white;
+    display: block;
+    text-align: center;
+  }
+  input[type="text"]
+  {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  input[type="email"]
+  {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  input[id="button"]
+  {
+    display: block;
+    margin: auto;
+  }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count your calories</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <style>body {
+        background-color: rgb(0, 0, 0);
+      }
+      h1 {
+        text-align: center;
+        margin-top: 200px;
+      
+        color: white;
+      }
+      
+      p
+      {
+        text-align: center;
+        color: white;
+        font-size: large;
+      }
+      label
+      {
+        color: white;
+        display: block;
+        text-align: center;
+      }
+      input[type="email"]
+      {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      input[type="password"]
+      {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      input[type="submit"]
+      {
+        display: block;
+        margin: auto;
+      }</style>
+</head>
+<body>
+    <h1>Welcome to CountYourCalories!</h1>
+    <p>Sign in if you dont have account or log in if you have one.</p>
+    <form onsubmit="return false">
+        <label for="user email">Enter email:</label><br>
+        <input type="email" id="user email" required><br>
+        <label for="user password">Enter password:</label><br>
+        <input type="password" id="user password" required><br><br>
+        <input type="submit" id="sign up" value="Sign up" onclick='submSignUp(document.getElementById("user email").value, document.getElementById("user password").value)'><br>
+        <input type="submit" id="log in" value="Log in" onclick='submLogIn(document.getElementById("user email").value, document.getElementById("user password").value)'>
+    </form>
+</body>
+<script>
+    var submLogIn = (email, password) =>
+    {
+      var b = "Incorrect password!";
+        if(email == "" || password == "")
+        {
+          alert("Enter an email and a ppassword!");
+          document.getElementById("form id").reset();
+        }
+        else 
+        {
+          var myHeaders = new Headers();
+
+          myHeaders.append("Content-Type", "application/json");
+          
+          var raw = JSON.stringify({"email":email,"password":password});
+
+          var requestOptions = {
+              method: 'POST',
+              headers: myHeaders,
+              body: raw,
+              redirect: 'follow'
+          };
+
+          fetch("https://wjmk9c9gih.execute-api.eu-north-1.amazonaws.com/login", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            let b = JSON.parse(result).body;
+            alert(b);
+            console.log(b);
+            if(!(b == '"Incorrect password!"' || b == '"Create account to log in!"'))
+            {
+              window.open("/writer.html");
+            }
+            return result;
+          })
+          .catch(error => console.log('error', error));
+        }
+    }
+
+    var submSignUp = (email, password)=>
+    {
+        var b = "";
+        if(email == "" || password == "")
+        {
+          alert("Enter an email and a password!");
+          document.getElementById("form id").reset();
+        }
+        else 
+        {
+          var myHeaders = new Headers();
+
+          myHeaders.append("Content-Type", "application/json");
+
+          var raw = JSON.stringify({"email":email,"password":password});
+
+          var requestOptions = {
+              method: 'POST',
+              headers: myHeaders,
+              body: raw,
+              redirect: 'follow'
+          };
+
+          fetch("https://6qdk5ikl52.execute-api.eu-north-1.amazonaws.com/sigin", requestOptions)
+          .then(response => response.text())
+          .then((result) => {
+            b = JSON.parse(result).body
+            alert(b);
+            if(b != '"Existing email!"')
+            {
+              window.open("/writer.html");
+            }
+            return result;
+          })
+          .catch(error => console.log('error', error));
+        }
+    }
+</script>
+</html>
