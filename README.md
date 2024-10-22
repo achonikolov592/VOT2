@@ -1,20 +1,17 @@
 # VOT2
-Проекта ми по ВОТ
+My VOT project
 
-Представлява сайт с логин/сайнин страница и страница, в която въвеждаш колко калории, мазнини и захари сте яли и ти изкарва колко сте яли.
+It's a website with a login/login page and a page where you enter how many calories, fats and sugars you've eaten and it tells you how much you've eaten.
 
-използвам html, css, javascript за създаването на сайта
+I use html, css, javascript to create the site
 
-използвам AWS Amplify за скалдиране на статичните страници
+I use AWS Amplify to scale the static pages
 
-използвам API Gateway za sysdawane na REST API, което използвам за комуникация между сайта и Amazon Lambda
+I use API Gateway for sysdawane na REST API, which I use for communication between the site and Amazon Lambda
 
-Използвам DynamoB за база данни и python Ламбда функциите
+I use DynamoB for database and python Lambda functions
 
-На повече въпроси ще отговарям в час
-
-Линк към сайта:
-https://votproekti.d1bxq0qcrg67yw.amplifyapp.com/
+Link to website: https://votproekti.d1bxq0qcrg67yw.amplifyapp.com/
 
 
 
