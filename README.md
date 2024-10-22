@@ -11,7 +11,5 @@ I use API Gateway for sysdawane na REST API, which I use for communication betwe
 
 I use DynamoB for database and python Lambda functions
 
-Link to website: https://votproekti.d1bxq0qcrg67yw.amplifyapp.com/
-
 
 
